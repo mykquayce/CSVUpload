@@ -1,6 +1,17 @@
+using CsvHelper.Configuration;
+using System.Globalization;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services
+	.AddSingleton<IReaderConfiguration>(
+		new CsvConfiguration(CultureInfo.InvariantCulture)
+		{
+			HasHeaderRecord = false,
+			MissingFieldFound = null,
+		});
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -21,3 +32,5 @@ app.MapControllerRoute(
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+public partial class Program;

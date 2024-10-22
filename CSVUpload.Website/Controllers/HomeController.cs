@@ -36,7 +36,9 @@ public class HomeController : Controller
 
 		try
 		{
-			return Ok(new { count = files.Count, size = tempFiles.Sum(fi => fi.Length), filePaths = tempFiles.Select(fi => fi.FullName), });
+			var o = from fi in tempFiles
+					select new { fi.Length, fi.FullName, };
+			return Ok(o);
 		}
 		finally
 		{
