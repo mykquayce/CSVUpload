@@ -5,7 +5,14 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSVUpload.Website", "CSVUpload.Website\CSVUpload.Website.csproj", "{3F5849C4-AB19-4666-972D-3AE7E1975F16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSVUpload.Tests", "CSVUpload.Tests\CSVUpload.Tests.csproj", "{A388519A-7666-4D5A-85EF-19BD99D607B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSVUpload.Tests", "CSVUpload.Tests\CSVUpload.Tests.csproj", "{A388519A-7666-4D5A-85EF-19BD99D607B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0B7842CF-C8F9-49F6-AFBE-472574D37472}"
+	ProjectSection(SolutionItems) = preProject
+		build.ps1 = build.ps1
+		docker-compose.yml = docker-compose.yml
+		schema.sql = schema.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
