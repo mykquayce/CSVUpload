@@ -1,0 +1,27 @@
+services:
+  app:
+    image: registry.local/4thu/csv-upload:latest
+    ports:
+      - 8080:8080/tcp
+
+  database:
+    image: mariadb:latest
+    environment:
+      MARIADB_DATABASE: campaigns
+      MARIADB_RANDOM_ROOT_PASSWORD: "true"
+      MARIADB_USER: campaigns
+      MARIADB_PASSWORD: b316f9c44f20f2fd2d3fa4aef10ee957
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    ports:
+      - 3306:3306/tcp
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      - mariadb-volume:/var/lib/mysql:rw
+
+volumes:
+  mariadb-volume: {}
